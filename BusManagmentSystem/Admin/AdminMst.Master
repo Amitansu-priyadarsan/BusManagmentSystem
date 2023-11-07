@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMst.Master.cs" Inherits="BusManagmentSystem.Admin.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Bus Managment System </title>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="../Content/styles.css" rel="stylesheet" />
+
+    <script src="../Scripts/popper.min.js"></script>
+
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".siderbar_menu li").click(function () {
+                $(".siderbar_menu li").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            $(".hamburger").click(function () {
+                $(".wrapper").addClass("active");
+            });
+
+            $(".close, .bg_shadow").click(function () {
+                $(".wrapper").removeClass("active");
+            });
+        });
+    </script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper" style="height: 100%;  overflow-x: scroll; ">
+            <div class="sidebar">
+                <div class="bg_shadow" overflow-x: scroll; ></div>
+                <div class="sidebar_inner"  overflow-x: scroll; >
+                    <div class="close"  overflow-x: scroll; >
+                        <i class="fas fa-times"  overflow-x: scroll; ></i>
+                    </div>
+
+                    <div class="profile_info">
+                        <div class="profile_img"  style="width: 90%; max-width: 500px;">
+                            <img src="../Image/logo-1.png" alt="profile_img"  style="width: 96%;">
+                        </div>
+                        <div class="profile_data">
+                            <p class="name">
+                                <% 
+                                    //if (Session["Username"] != null)
+                                    {
+                                        Response.Write(Session["Username"].ToString());
+                                    }
+                                %>
+                            </p>
+                          
+                        </div>
+                    </div>
+                    
+                   <%--  SIDEBAR--%>
+                    <ul class="siderbar_menu">
+                        <li>
+                            <a href="../Admin/AdminHome.aspx">
+                                <div class="icon"><i class="fas fa-home"></i></div>
+                                <div class="title">Home</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon"><i class="fas fa-hotel"></i></div>
+                                <div class="title">Buss Pass </div>
+                                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                            </a>
+                            <ul class="accordion">
+                                <li><a href="../Admin/AddEmployee.aspx" class="active"><i class="fas fa-user-plus pr-1"></i>Add Employee</a></li>
+                               
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="icon"><i class="fas fa-user-tie"></i></div>
+                                <div class="title">Id Card</div>
+                                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                            </a>
+                            <ul class="accordion">
+                                <li><a href="../Admin/GenerateIDcard.aspx" class="active"><i class="fas fa-user-plus pr-1"></i>Generate ID card </a></li>
+                               
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon"><i class="fas fa-user-tie"></i></div>
+                                <div class="title">Report</div>
+                                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                            </a>
+                            <ul class="accordion">
+                                <li><a href="../Admin/GeneateReport.aspx" class="active"><i class="fas fa-user-plus pr-1"></i>Generate Report</a></li>
+                                <li><a href="../Admin/MonthlyPayment.aspx" class="active"><i class="fas fa-user-plus pr-1"></i>Monthly Report</a></li>
+                                   <li><a href="../Admin/OldRecord.aspx" class="active"><i class="fas fa-user-plus pr-1"></i> Old Report</a></li>
+
+
+                                
+
+                                
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="icon"><i class="fas fa-user-tie"></i></div>
+                                <div class="title">ADD</div>
+                                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                            </a>
+                            <ul class="accordion">
+                                <li><a href="../Admin/AddDesignation.aspx" class="active"><i class="fas fa-user-plus pr-1"></i>Add Designation</a></li>
+                                <li><a href="../Admin/DesignationFees.aspx" class="active"><i class="fas fa-book-reader pr-1"></i>Designation Fees</a></li>
+                               <li><a href="../Admin/AddStoppage.aspx" class="active"><i class="fas fa-file pr-1"></i>Add Stoppage</a></li>
+
+                                <li><a href="../Admin/AddDepartment.aspx" class="active"><i class="fas fa-file pr-1"></i>Add Department</a></li>
+                                <li><a href="../Admin/PassType.aspx" class="active"><i class="fas fa-file pr-1"></i>Passs type</a></li>
+                            </ul>
+                        </li>
+
+
+
+
+
+                    </ul>
+                    <div class="logout_btn">
+                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false" OnClick="btnLogOut_Click">Logout</asp:LinkButton>
+                    </div>
+
+                <%--    Sidebar end--%>
+
+
+                </div>
+            </div>
+        <%-- navbar--%>
+            <div class="main_container">
+                <div class="navbar">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="logo">
+                        <a href="#">Bus Managment System </a>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>
