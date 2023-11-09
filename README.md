@@ -2,7 +2,7 @@
 
 This Bus Management System is the result of my internship experience at Jindal Stainless Limited (JSL). It serves as a comprehensive solution for efficiently managing employee information and streamlining bus services. During my internship, I actively contributed to its development, and it reflects my journey into full-stack development and database management.
 
-**Internship Duration:** 25th September - 9th November (46 days)
+**Internship Duration:** 25th September 2023 - 9th November 2023 
 
 ## Key Features
 
