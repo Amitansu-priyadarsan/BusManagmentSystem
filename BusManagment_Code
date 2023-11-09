@@ -1,0 +1,72 @@
+Create Database BusManagment;
+
+
+CREATE TABLE Employee (
+    EmployeeId INT PRIMARY KEY identity(1,1) NOT NULL,
+    EmployeeName NVARCHAR(255) NOT NULL,
+    Designation NVARCHAR(255) NOT NULL ,
+    Department NVARCHAR(255) NOT NULL ,
+    Contact Nvarchar(50) NOT NULL ,
+    Address NVARCHAR(255),
+    LeaveStatus BIT ,
+    SurrenderDate DATE,
+    IsActive BIT,
+    CreatedBy VARCHAR(255),
+    CreatedDate DATETIME
+);
+
+CREATE TABLE Designation (
+    DesignationId INT PRIMARY KEY identity(1,1) NOT NULL ,
+    DesignationName NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(255),
+    CreatedBy VARCHAR(255),
+    CreatedDate DATETIME,
+    IsActive BIT
+);
+
+CREATE TABLE Department (
+    DepartmentId INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    DepartmentName NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(255),
+    CreatedBy VARCHAR(255),
+    CreatedDate DATETIME,
+    IsActive BIT
+);
+
+
+CREATE TABLE Pass (
+    PassId INT PRIMARY KEY identity(1,1) NOT NULL ,
+    PassType NVARCHAR(50) NOT NULL,
+    PassName VARCHAR(255) NOT NULL,
+    PassDescription VARCHAR(255),
+    PassCharge DECIMAL(10, 2),
+	IsActive BIT,
+    CreatedBy VARCHAR(255),
+    CreatedDate DATETIME
+);
+
+CREATE TABLE StoppageMaster (
+    StopId INT PRIMARY KEY,
+    StopLocation VARCHAR(255) NOT NULL,
+    StoppageDescription VARCHAR(255),
+    IsActive BIT,
+    CreatedBy VARCHAR(255),
+    CreatedDate DATETIME
+);
+
+
+CREATE TABLE [User] (
+    UserId INT PRIMARY KEY NOT NULL,
+    Username VARCHAR(255) NOT NULL,
+    Password NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE [TransactionTable] (
+    TransactionId INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+  [EmployeeId],
+      EmployeeName String ,
+      CreatedDate DATETIME,
+      DeductionAmount INT ,
+      Month INT ,
+      Year INT 
+);
